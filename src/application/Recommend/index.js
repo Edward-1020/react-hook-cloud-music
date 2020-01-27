@@ -29,8 +29,8 @@ function Recommend () {
     <Content>
       <Scroll className="list" onScoll={forceCheck}>
         <div>
-          <Slider bannerList={bannerList}></Slider>
-          <RecommendList recommendList={recommendList}></RecommendList>
+          <Slider bannerList={bannerListJS}></Slider>
+          <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
       {enterLoading ? <Loading/> : null}
