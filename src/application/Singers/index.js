@@ -19,17 +19,22 @@ import {
 } from './store/actionCreators';
 import Scroll from '../../baseUI/scroll/index';
 import {connect} from 'react-redux';
+import { CHANGE_ALPHA, CHANGE_CATEGORY } from './data';
 
 function Singers() {
   let [category, setCategory] = useState('');
   let [alpha, setAlpha] = useState('');
+  const {data, dispatch} = useContext(CategoryDataContext);
+  const {category, alpha} = data.toJS();
 
   let handleUpdateAlpah = (val) => {
-    setAlpha(val);
+    dispatch({type: CHANGE_ALPHA, data: val});
+    updateDispatch(category, val);
   }
 
   let handleUpadteCategory = (val) => {
-    setCategory(val);
+    dispatch({type: CHANGE_CATEGORY, data: val});
+    updateDispatch(val, alpha);
   }
 
   return (
